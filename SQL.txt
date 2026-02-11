@@ -1,0 +1,22 @@
+select Orders.order_id, Customers.first_name,
+Customers.customer_id, Orders.item from Orders
+inner join Customers On
+Orders.customer_id = Customers.customer_id;
+
+
+SELECT Customers.customer_id, first_name, amount FROM
+CUSTOMERS INNER JOIN ORDERS ON
+CUSTOMERS.customer_id = ORDERS.CUSTOMER_id;
+
+Left joins:
+SELECT Customers.customer_id, first_name, amount FROM
+CUSTOMERS Left JOIN ORDERS ON
+CUSTOMERS.customer_id = ORDERS.CUSTOMER_id;
+
+Right joins:
+SELECT Customers.customer_id, first_name, amount FROM
+ORDERS Left JOIN  CUSTOMERS ON
+CUSTOMERS.customer_id = ORDERS.CUSTOMER_id;
+
+SELECT FIRST_NAME, AMOUNT
+FROM CUSTOMERS, ORDERS;
