@@ -1,0 +1,205 @@
+Microsoft Windows [Version 10.0.26200.8037]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\ACER>mongosh
+Current Mongosh Log ID: 69c09e4e0d0f3e6849114029
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.8.1
+MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017
+
+C:\Users\ACER>mongosh "mongodb+srv://cluster0.uo9sey3.mongodb.net/" --apiVersion 1 --username salinashrestha_db_user
+Enter password: *************
+Current Mongosh Log ID: 69c0a1470f4ab35e07114029
+Connecting to:          mongodb+srv://<credentials>@cluster0.uo9sey3.mongodb.net/?appName=mongosh+2.8.1
+Using MongoDB:          8.0.20 (API Version 1)
+Using Mongosh:          2.8.1
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+
+To help improve our products, anonymous usage data is collected and sent to MongoDB periodically (https://www.mongodb.com/legal/privacy-policy).
+You can opt-out by running the disableTelemetry() command.
+
+Atlas atlas-hwwbxh-shard-0 [primary] test> show db
+MongoshInvalidInputError: [COMMON-10001] 'db' is not a valid argument for "show".
+Atlas atlas-hwwbxh-shard-0 [primary] test> show dbs
+College         8.00 KiB
+sample_mflix  117.14 MiB
+admin         352.00 KiB
+local           6.23 GiB
+Atlas atlas-hwwbxh-shard-0 [primary] test> i created database in mongodb now how to insert datai created database in mongodb now how to insert datai created database in mongodb now how to insert data
+Uncaught:
+SyntaxError: Missing semicolon. (1:1)
+
+> 1 | i created database in mongodb now how to insert datai created database in mongodb now how to insert datai created database in mongodb now how to insert data
+    |  ^
+  2 |
+
+Atlas atlas-hwwbxh-shard-0 [primary] test>
+
+Atlas atlas-hwwbxh-shard-0 [primary] test> show dbs
+College         8.00 KiB
+sample_mflix  117.14 MiB
+admin         352.00 KiB
+local           6.23 GiB
+Atlas atlas-hwwbxh-shard-0 [primary] test> use test
+already on db test
+Atlas atlas-hwwbxh-shard-0 [primary] test> db.students.insertMany([ { name: "Salina", age: 19, grade: "A" }])
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId('69c0a5350f4ab35e0711402a') }
+}
+Atlas atlas-hwwbxh-shard-0 [primary] test> db.students.find().pretty
+[Function: pretty] {
+  returnType: 'this',
+  serverVersions: [ '0.0.0', '999.999.999' ],
+  apiVersions: [ 0, Infinity ],
+  topologies: [ 'ReplSet', 'Standalone', 'Sharded', 'LoadBalanced' ],
+  returnsPromise: false,
+  deprecated: false,
+  platforms: [ 'Compass', 'Browser', 'CLI' ],
+  isDirectShellCommand: false,
+  acceptsRawInput: false,
+  shellCommandCompleter: undefined,
+  newShellCommandCompleter: undefined,
+  help: [Function (anonymous)] Help
+}
+Atlas atlas-hwwbxh-shard-0 [primary] test> db.students.find().pretty()
+[
+  {
+    _id: ObjectId('69c0a5350f4ab35e0711402a'),
+    name: 'Salina',
+    age: 19,
+    grade: 'A'
+  }
+]
+Atlas atlas-hwwbxh-shard-0 [primary] test> db.students.find({age: {$gt: 20}}).pretty()
+
+Atlas atlas-hwwbxh-shard-0 [primary] test> db.students.find({grade: "A"}).pretty()
+[
+  {
+    _id: ObjectId('69c0a5350f4ab35e0711402a'),
+    name: 'Salina',
+    age: 19,
+    grade: 'A'
+  }
+]
+Atlas atlas-hwwbxh-shard-0 [primary] test> db.students.find({name: "Ram"}).pretty()
+
+Atlas atlas-hwwbxh-shard-0 [primary] test> db.students.updateOne({name: "Hari"}, {$set: {grade: "B"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 0,
+  modifiedCount: 0,
+  upsertedCount: 0
+}
+Atlas atlas-hwwbxh-shard-0 [primary] test> db.students.updateOne({name: "Salina"}, {$set: {grade: "B"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+Atlas atlas-hwwbxh-shard-0 [primary] test> db.students.deleteOne({name: "Salina"})
+{ acknowledged: true, deletedCount: 1 }
+Atlas atlas-hwwbxh-shard-0 [primary] test> db.students.find().pretty()
+
+Atlas atlas-hwwbxh-shard-0 [primary] test> db.students.insertMany([ { name: "Salina", age: 19, grade: "A" },{ name: "Salina", age: 19,Atlas atlas-hwwbxh-shard-0 [primary] test> db.students.insertMany([ { name: "Salina", age: 19, grade: "A" },{ name: "Salina", age: 19, grade: "A" }])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('69c0a92f0f4ab35e0711402b'),
+    '1': ObjectId('69c0a92f0f4ab35e0711402c')
+  }
+}
+Atlas atlas-hwwbxh-shard-0 [primary] test> db.students.insertMany([ { name: "Salina", age: 19, grade: "A" }])
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId('69c0a9510f4ab35e0711402d') }
+}
+Atlas atlas-hwwbxh-shard-0 [primary] test> db.students.insertMany([ { name: "Ria", age: 20, grade: "A" }])
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId('69c0a9670f4ab35e0711402e') }
+}
+Atlas atlas-hwwbxh-shard-0 [primary] test> db.students.insertMany([ { name: "Alisha", age: 22, grade: "B" }])
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId('69c0a9790f4ab35e0711402f') }
+}
+Atlas atlas-hwwbxh-shard-0 [primary] test> db.students.find().pretty()
+[
+  {
+    _id: ObjectId('69c0a92f0f4ab35e0711402b'),
+    name: 'Salina',
+    age: 19,
+    grade: 'A'
+  },
+  {
+    _id: ObjectId('69c0a92f0f4ab35e0711402c'),
+    name: 'Salina',
+    age: 19,
+    grade: 'A'
+  },
+  {
+    _id: ObjectId('69c0a9510f4ab35e0711402d'),
+    name: 'Salina',
+    age: 19,
+    grade: 'A'
+  },
+  {
+    _id: ObjectId('69c0a9670f4ab35e0711402e'),
+    name: 'Ria',
+    age: 20,
+    grade: 'A'
+  },
+  {
+    _id: ObjectId('69c0a9790f4ab35e0711402f'),
+    name: 'Alisha',
+    age: 22,
+    grade: 'B'
+  }
+]
+Atlas atlas-hwwbxh-shard-0 [primary] test> db.students.updateOne({name: "Salina"}, {$set: {grade: "B"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+Atlas atlas-hwwbxh-shard-0 [primary] test> db.students.find().pretty()
+[
+  {
+    _id: ObjectId('69c0a92f0f4ab35e0711402b'),
+    name: 'Salina',
+    age: 19,
+    grade: 'B'
+  },
+  {
+    _id: ObjectId('69c0a92f0f4ab35e0711402c'),
+    name: 'Salina',
+    age: 19,
+    grade: 'A'
+  },
+  {
+    _id: ObjectId('69c0a9510f4ab35e0711402d'),
+    name: 'Salina',
+    age: 19,
+    grade: 'A'
+  },
+  {
+    _id: ObjectId('69c0a9670f4ab35e0711402e'),
+    name: 'Ria',
+    age: 20,
+    grade: 'A'
+  },
+  {
+    _id: ObjectId('69c0a9790f4ab35e0711402f'),
+    name: 'Alisha',
+    age: 22,
+    grade: 'B'
+  }
+]
+Atlas atlas-hwwbxh-shard-0 [primary] test> db.students.countDocuments()
